@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 
+// 100% localStorage, sin db ni firebase
 const LOCAL_KEY = 'cashx_movimientos';
 
 const Reportes = () => {

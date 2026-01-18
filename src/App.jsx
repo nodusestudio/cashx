@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-// ErrorBoundary simple
+// ErrorBoundary simple (opcional, no relacionado a firebase)
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +14,7 @@ class ErrorBoundary extends React.Component {
   componentDidCatch(error, errorInfo) {}
   render() {
     if (this.state.hasError) {
-      return <div style={{color:'#fff',background:'#111827',height:'100vh',display:'flex',alignItems:'center',justifyContent:'center',fontSize:22}}>Error al conectar con la base de datos</div>;
+      return <div style={{color:'#fff',background:'#111827',height:'100vh',display:'flex',alignItems:'center',justifyContent:'center',fontSize:22}}>Ocurrió un error inesperado</div>;
     }
     return this.props.children;
   }
@@ -26,8 +26,6 @@ import { ConfigProvider, ConfigContext } from './ConfigContext';
 
 const sidebarItems = [
   { label: 'Dashboard' },
-  { label: 'Ingresos/Egresos' },
-  { label: 'Movimientos' },
   { label: 'Reportes' },
   { label: 'Configuración' },
 ];
@@ -68,14 +66,9 @@ function App() {
                     {item.label}
                   </button>
                 ))}
-                {saldoPendiente && (
-                  <div style={{marginTop:24,marginLeft:24,background:'#206DDA',color:'#fff',borderRadius:8,padding:'6px 12px',fontWeight:600,fontSize:14}}>Pendiente Saldo Inicial</div>
-                )}
-              </aside>
-              function App() {
-                const [selected, setSelected] = useState('Dashboard');
-                return (
-                  <ErrorBoundary>
+                function App() {
+                  const [selected, setSelected] = useState('Dashboard');
+                  return (
                     <ConfigProvider>
                       <ConfigContext.Consumer>
                         {({ saldoPendiente, loading }) => (
@@ -123,5 +116,6 @@ function App() {
                         )}
                       </ConfigContext.Consumer>
                     </ConfigProvider>
-                  </ErrorBoundary>
-                );
+                  );
+                }
+

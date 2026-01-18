@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import FormularioMovimiento from './FormularioMovimiento';
 
-
+// 100% localStorage, sin db ni firebase
 const METODOS_BANCOS = ['Nequi', 'Bancolombia', 'Bold', 'Aliados'];
 const LOCAL_KEY = 'cashx_movimientos';
 const CONFIG_KEY = 'cashx_config';
