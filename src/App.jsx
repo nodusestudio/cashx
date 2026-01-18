@@ -84,7 +84,7 @@ function App() {
                                     key={item.label}
                                     onClick={() => setSelected(item.label)}
                                     style={{
-                                      background: selected === item.label ? '#206DDA' : 'transparent',
+export default App;
                                       color: selected === item.label ? '#fff' : '#fff',
                                       border: 'none',
                                       textAlign: 'left',
